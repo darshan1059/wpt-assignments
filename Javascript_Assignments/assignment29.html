@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-29</title>
+
+    <style>
+        input {
+            float: right;
+        }
+
+        form {
+            background-color: brown;
+            color: white;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 600px;
+        }
+
+        li {
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            width: 20%;
+            margin-top: 1rem;
+            margin-left: 10rem;
+            display: block;
+            padding: 0.5rem;
+            background-color: seashell;
+            color: black;
+            border: 1px solid white;
+        }
+
+        span {
+            padding: 0.5rem;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var loanAmt = document.getElementById("amt").value;
+            var rateOfInterest = document.getElementById("roi").value;
+            var period = document.getElementById("time").value;
+            if (loanAmt > 1500000) {
+                return document.getElementById("s1").innerHTML = "Loan amount should not be more than 15 lakhs";
+            }
+            if (period < 7 || period > 15) {
+                return document.getElementById("s2").innerHTML = "Repayment time should be in between 7 to 15yrs";
+            }
+            var interest = ((loanAmt * rateOfInterest * period) / 100);
+            var total = (parseInt(interest) + parseInt(loanAmt));
+            var monthlyAmt = Math.ceil(total / (period * 12));
+            document.getElementById("monthly_amt").value = monthlyAmt;
+            document.getElementById("total_amt").value = total;
+            document.getElementById("total_int").value = interest;
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <h2>Enter Loan Information:</h2>
+        <ol>
+
+            <li>
+                Amount of the Loan(any currency): <input type="number" id="amt" min="0"> <span id="s1"></span>
+            </li>
+            <li>
+                Annual percentage rate of interest: <input type="number" id="roi" min="0">
+            </li>
+            <li>
+                Repayment period in years: <input type="number" id="time" min="0"> <span id="s2"></span>
+            </li>
+
+            <button type="button" onclick="validateForm()">Compute</button><br>
+
+        </ol>
+
+        <h2>Payment Information</h2>
+        <ol>
+
+            <li>
+                Your monthly payment will be: <input type="number" id="monthly_amt" disabled>
+            </li>
+            <li>
+                Your total payment will be: <input type="number" id="total_amt" disabled>
+            </li>
+            <li>
+                Your total interest payments will be: <input type="number" id="total_int" disabled>
+            </li>
+        </ol>
+    </form>
+</body>
+
+</html>
