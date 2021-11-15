@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-25</title>
+
+    <style>
+        body {
+            text-align: left;
+        }
+
+        form {
+            display: inline-block;
+            background-color: darkgoldenrod;
+            color: black;
+            border: 1px solid black;
+            padding: 1rem;
+            width: fit-content;
+            font-weight: bold;
+        }
+
+        #btn1 {
+            width: 20%;
+            margin-top: 1rem;
+            display: block;
+            padding: 0.5rem;
+            background-color: seashell;
+            color: black;
+            border: 1px solid white;
+            font-weight: bold;
+        }
+
+        input {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        span {
+            padding: 1rem;
+            margin-top: 1rem;
+
+        }
+    </style>
+
+    <script>
+        function check() {
+            var str = document.getElementById("str").value;
+            var subStr = document.getElementById("subStr").value;
+            var repStr = document.getElementById("repStr").value;
+            var search = document.getElementById("search");
+            var upper = document.getElementById("upper");
+            var lower = document.getElementById("lower");
+            var trim = document.getElementById("trim");
+            var concat = document.getElementById("concat");
+            var replace = document.getElementById("replace");
+            var show = "";
+
+        
+            if (search.checked) {
+                if (str.includes(subStr)) {
+                    show = "Found";
+                    //console.log(show);
+                    document.getElementById("output").innerHTML = show;
+
+                } else {
+                    show = "Not Found";
+                    //console.log(show);
+                    document.getElementById("output").innerHTML = show;
+                }
+            }
+
+            if (upper.checked) {
+
+                show = str.toUpperCase();
+                //console.log(show);
+                document.getElementById("output").innerHTML = show;
+            }
+
+            if (lower.checked) {
+
+                //console.log(lower);
+                show = str.toLowerCase();
+                console.log(show);
+
+                document.getElementById("output").innerHTML = show;
+            }
+
+            if (trim.checked) {
+
+                show = str.trim();
+                //console.log(show);
+                document.getElementById("output").innerHTML = show;
+            }
+
+            if (concat.checked) {
+
+                show = str.concat(" ",subStr);
+                //console.log(show);
+                document.getElementById("output").innerHTML = show;
+            }
+
+            if (replace.checked) {
+
+                show = str.replace(str, repStr);
+                //console.log(show);
+                document.getElementById("output").innerHTML = show;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Enter String: <input type="text" id="str"><br>
+        Enter Sub String: <input type="text" id="subStr"><br>
+        Replace with String: <input type="text" id="repStr"><br>
+        <input type="radio" id="search" name="select">Search substring in main string
+        <input type="radio" id="upper" name="select">To Upper Case
+        <input type="radio" id="lower" name="select">To Lower Case
+        <input type="radio" id="trim" name="select">Trim Spaces
+        <input type="radio" id="concat" name="select">Concatenate
+        <input type="radio" id="replace" name="select">Replace <br>
+        <input type="button" id="btn1" value="Submit Query" onclick="check()">
+        <p id="output"></p>
+    </form>
+</body>
+
+</html>
