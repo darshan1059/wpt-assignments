@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-30</title>
+
+    <style>
+
+        input{
+            padding: 0.2rem;
+            margin: 1rem;
+        }
+
+        form {
+            background-color: cadetblue;
+            color: whitesmoke;
+            border: 3px solid green;
+            padding: 30px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+
+        table{
+            background-color: cadetblue;
+            color: whitesmoke;
+            border: 3px solid green;
+            padding: 30px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+        }
+
+    
+    </style>
+
+    <script>
+        function display() {
+
+            clearSpans();
+            var oid = document.getElementById("oid");
+            var name = document.getElementById("cname");
+            var bDate = document.getElementById("bdate");
+            var sDate = document.getElementById("sdate");
+            var oTotal = document.getElementById("otot");
+
+            if (oid.value == null || oid.value == "") {
+                mandatory("errId");
+                return 0;
+            }
+            if (name.value == null || name.value == "") {
+                mandatory("errName");
+                return 0;
+            }
+            if (bDate.value == null || bDate.value == "") {
+                mandatory("errBillDate");
+                return 0;
+            }
+            if (sDate.value == null || sDate.value == "") {
+                mandatory("errShipDate");
+                return 0;
+            }
+            if (oTotal.value == null || oTotal.value == "") {
+                mandatory("errTot");
+                return 0;
+            }
+
+            if (name.value.length < 6) {
+                document.getElementById("errName").innerHTML = "Customer name cannot be less than 6 characters";
+                focusOn(name);
+                return 0;
+            }
+
+
+            if (bDate.value > sDate.value) {
+                document.getElementById("errBillDate").innerHTML = "Billing Date cannot be greater than shipping date ";
+                focusOn(bDate);
+                return 0;
+            }
+
+            var Order = {
+                oid: oid.value,
+                cname: name.value,
+                bdate: bDate.value,
+                sdate: sDate.value,
+                otot: oTotal.value
+
+            };
+
+            var orderTable = "<table cellspacing=0 cellpadding=10 border=1>" +
+                "<tr><td>Order ID:</td><td>" + Order.oid + "</td></tr>" +
+                "<tr><td>Customer Name:</td><td>" + Order.cname + "</td></tr>" +
+                "<tr><td>Billing date:</td><td>" + Order.bdate + "</td></tr>" +
+                "<tr><td>Shipping date:</td><td>" + Order.sdate + "</td></tr>" +
+                "<tr><td>Order Total:</td><td>$" + Order.otot + "</td></tr>" +
+                "</table>";
+
+
+            var myWindow = window.open("", "Order details",
+                "toolbar=no,scrollbars=no,resizable=no,width=400,height=400");
+            myWindow.document.write(orderTable);
+
+
+            function clearSpans() {
+                document.getElementById("errId").innerHTML = "";
+                document.getElementById("errName").innerHTML = "";
+                document.getElementById("errBillDate").innerHTML = "";
+                document.getElementById("errShipDate").innerHTML = "";
+                document.getElementById("errTot").innerHTML = "";
+            }
+
+            function focusOn(element) {
+                element.focus();
+            }
+
+            function mandatory(string) {
+                document.getElementById(string).innerHTML = "Mandarory Field";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Order ID: <input type="number" id="oid"><span id="errId"></span><br>
+        Customer Name: <input type="text" id="cname"><span id="errName"></span><br>
+        Enter Billing date: <input type="date" id="bdate"><span id="errBillDate"></span><br>
+        Enter Shipping date: <input type="date" id="sdate"><span id="errShipDate"></span><br>
+        Order Total: <input type="number" id="otot"><span id="errTot"></span><br>
+        <button type="button" onclick="display()">Display</button>
+    </form>
+</body>
+
+</html>
