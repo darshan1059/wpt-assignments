@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+
+    <script>
+        function min()
+        {
+            var minNo = arguments[0];
+
+            for(var i=0; i<arguments.length; i++)
+            {
+                if(minNo > arguments[i])
+                {
+                    minNo = arguments[i];
+                }
+            }
+            document.write("Minimum number is: " + minNo + "<br>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+        min(1,2,3,4,5);
+        min(5,4,3,2);
+        min(10,5,90,55,2,15,1);
+        min(1,2,3,0);
+    </script>
+</body>
+</html>
