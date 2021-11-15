@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function calCI()
+        {
+            var prin = parseInt(document.getElementById("principal").value);
+            var interest = parseInt(document.getElementById("roi").value);
+            var period = parseInt(document.getElementById("period").value);
+            var CI = ((prin*(1+(interest/100))^period)-prin);
+            document.getElementById("output").innerHTML=CI;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculate Compound Interest</h1>
+    <table>
+        <tr>
+            <td>Principal: </td>
+            <td><input type="number" id="principal" > rs</td>
+        </tr>
+
+        <tr>
+            <td>Rate of Interest: </td>
+            <td><input type="number" id="roi" > %</td>
+        </tr>
+
+        <tr>
+            <td>Period: </td>
+            <td><input type="number" id="period" > yr</td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="Calculate" onclick="calCI()"></td>
+        </tr>
+
+        <tr>
+            <td>Compound Interest is: </td>
+            <td><span id="output"></span></td>
+        </tr>
+
+      
+    </table>
+</body>
+</html>
