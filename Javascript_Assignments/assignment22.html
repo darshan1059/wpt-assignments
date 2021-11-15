@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-22</title>
+
+    <script>
+        var arr = ["www.google.com", "www.msn.com", " websitexample", "www.amazon.com", "websitedisrupt", "www.coderanch.com", "too_many_assignments_time_crunch.com"];
+        var arList = [];
+        var arrDisplay = [];
+        var j = 0;
+
+        for (i in arr) {
+            arList = arr[i].split("");
+            if (arList[0] == "w" && arList[1] == "w" && arList[2] == "w" && arList[3]==".") {
+                arrDisplay[j] = arr[i];
+                j++;
+            }
+        }
+
+        document.write("<h2> The total number of websites that start with www are : " + arrDisplay.length + "<h2>"+
+            "<h2> The websites are:  <br>"+ arrDisplay + "<h2>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
