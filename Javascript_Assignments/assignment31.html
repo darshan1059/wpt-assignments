@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-31</title>
+
+    <script>
+
+        function validate_and_display() {
+
+            function focusOn(element) {
+            element.focus();
+            return false;
+        }
+
+
+            document.getElementById("error_name").innerHTML = "";
+            document.getElementById("error_bdate").innerHTML = "";
+            document.getElementById("error_email").innerHTML = "(Use format: name@company.com)";
+            document.getElementById("error_gender").innerHTML = "";
+            document.getElementById("error_lucky").innerHTML = "(A number between 1 and 100)";
+            document.getElementById("error_foods").innerHTML = "";
+
+
+
+            var name = document.getElementById("name"); console.log(name.value);
+
+            var month = document.getElementById("month"); console.log(month.value);
+
+
+            var day_v = document.getElementById("date"); console.log(day_v.value);
+            var year = document.getElementById("year"); console.log(year.value);
+
+            var email = document.getElementById("email"); console.log(email.value);
+            var gender = document.getElementsByName("gender"); console.log(gender.value);
+            var lucky = document.getElementById("lucky"); console.log(lucky.value);
+            var foods = document.getElementsByName("foods"); console.log(foods.value);
+
+            //validating each field with the conditions given in question
+            if (name.value == null || name.value == "") {
+                document.getElementById("error_name").innerHTML = "Mandatory Field";
+                return focusOn(name);
+
+            }
+
+            if (name.value.length > 10 || !name.value.match(/^[a-zA-Z/ /]+$/)) {
+                document.getElementById("error_name").innerHTML = "Only alphabets allowed with maximum length 10";
+                return focusOn(name);
+            }
+
+            if (month.value == 0 ) {
+                 document.getElementById("error_bdate").innerHTML = "Mandatory Field";
+                 return focusOn(month);
+             }
+ 
+             if (day_v.value == 0 ) {
+                 document.getElementById("error_bdate").innerHTML = "Mandatory Field";
+                 return focusOn(day_v);
+             }
+ 
+             if (year.value == 0 ) {
+                 document.getElementById("error_bdate").innerHTML = "Mandatory Field";
+                 return focusOn(year);
+             }
+             if (email.value == null || email.value == "") {
+                document.getElementById("error_email").innerHTML = "Mandatory Field";
+                return focusOn(email);
+            }
+            if (gender[0].checked == false && gender[1].checked == false) {
+                document.getElementById("error_gender").innerHTML = "Mandatory Field";
+                return focusOn(gender[0]);
+            }
+            if (lucky.value == null || lucky.value == "") {
+                document.getElementById("error_lucky").innerHTML = "Mandatory Field";
+                return focusOn(lucky);
+            }
+
+            if (lucky.value < 1000 || lucky.value > 9999) {
+                document.getElementById("error_lucky").innerHTML ="\u274C"+ "must be of 4 digits";
+                return focusOn(lucky);
+            }
+            if (foods[0].checked == false && foods[1].checked == false && foods[2].checked == false) {
+                document.getElementById("error_foods").innerHTML = "Mandatory Field";
+                return focusOn(foods[0]);
+            }
+
+            
+
+
+            var gender_value = "none"; //initilaizing a variable to store gender in it
+            if (gender[0].checked == true) {
+                gender_value = gender[0].value;
+            }
+            else if (gender[1].checked == true) {
+                gender_value = gender[1].value;
+            }
+
+            var fav_foods = []; // created an array to store the checked food value
+            for (var i in foods) {
+                if (foods[i].checked == true) {
+                    fav_foods.push(foods[i].value);
+                }
+            }
+
+
+            var Info = {
+                "Name": name.value,
+                "Birth_date": (month.value.slice(0, 3) + "/" + date.value + "/" + year.value),
+                "Email_address": email.value,
+                "Gender": gender_value,
+                "Lucky_Number": lucky.value,
+                "Favorite_food": fav_foods
+
+            };
+
+            var infoTable = "<table cellspacing=0 cellpadding=10 >" +
+                "<tr><td cellspan = '2'>You entered:</td></tr>" +
+                "<tr><td>Name:</td><td>" + Info.Name + "</td></tr>" +
+                "<tr><td>Birth Date:</td><td>" + Info.Birth_date + "</td></tr>" +
+                "<tr><td>Email Address:</td><td>" + Info.Email_address + "</td></tr>" +
+                "<tr><td>Gender:</td><td>" + Info.Gender + "</td></tr>" +
+                "<tr><td>Lucky Number:</td><td>" + Info.Lucky_Number + "</td></tr>" +
+                "<tr><td>Favorite Food:</td><td>" + Info.Favorite_food + "</td></tr>" +
+                "</table>";
+
+
+            //displaying in a new window
+            var myWindow = window.open("", "Information details",
+                "toolbar=no,scrollbars=no,resizable=no,width=400,height=400");
+            myWindow.document.write(infoTable);
+
+            /* //another way to display in a new window
+            var new_win = window.open();
+            new_win.document.write("You Entered: <br>")
+            for (property in Info) {
+                new_win.document.write( property + ": " + Info[property] + "<br>");
+            }*/
+
+            return true;
+
+
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <form onsubmit="return validate_and_display()">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="name">&nbsp;
+                    <span style="color:red" id="error_name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Birth Date:</td>
+                <td><select id="month"></select>&nbsp;
+                    <select id="date"></select>&nbsp;
+                    <select id="year"></select>&nbsp;
+                    <span style="color:red" id="error_bdate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Email Address</td>
+                <td><input id="email" name="email" type="email">&ensp;
+                    <span style="color:red" id="error_email">(Use format: name@company.com)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" id="male" name="gender" value="Male">&nbsp;Male&nbsp;
+                    <span style="color:red" id="error_gender"></span><br>
+                    <input type="radio" id="female" name="gender" value="Female">&nbsp;Female
+            </tr>
+            <tr>
+                <td>Lucky Number:</td>
+                <td><input type="number" id="lucky" name="lucky">&nbsp;
+                    <span style="color:red" id="error_lucky">(A number between 1 and 100)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Favorite Foods:</td>
+                <td><input type="checkbox" id="Pizza" name="foods" value="Pizza">&nbsp;Pizza&nbsp;
+                    <span style="color:red" id="error_foods"></span><br>
+                    <input type="checkbox" id="Pasta" name="foods" value="Pasta">&nbsp;Pasta<br>
+                    <input type="checkbox" id="Chinese" name="foods" value="Chinese">&nbsp;Chinese<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2><input type="submit" value="Send Data"></td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+    <script>
+        var mon = [" ", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        for (var i = 0; i < mon.length; i++) {
+
+            if (i == 0)
+
+                document.getElementById("month").innerHTML += "<option value = " + 0 + ">" + " " + "</option>";
+            else
+
+                document.getElementById("month").innerHTML += "<option value = " + mon[i] + ">" + mon[i] + "</option>";
+        }
+        for (var i = 0; i <= 31; i++) {
+            if (i == 0)
+                document.getElementById("date").innerHTML += "<option value = " + 0 + "> " + " " + "</option>";
+            else
+                document.getElementById("date").innerHTML += "<option value = " + i + "> " + i + "</option>";
+        }
+        for (var i = 1949; i <= (new Date().getFullYear()); i++) {
+
+            if (i == 1949)
+
+                document.getElementById("year").innerHTML += "<option value = " + 0 + "> " + " " + "</option>";
+
+            else
+                document.getElementById("year").innerHTML += "<option value = " + i + "> " + i + "</option>";
+        }
+
+    </script>
+
+</body>
+
+</html>
