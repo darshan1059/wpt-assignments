@@ -1,0 +1,86 @@
+<html>
+    <head>
+
+    <script>
+        function sort()
+        {
+            var arr = [];
+            var empList = document.getElementsByTagName("input");
+
+            for(element of empList)
+            {
+                arr.push(element.value);
+            }
+        
+            arr.sort();
+            document.getElementById("para").innerHTML="The Sorted List of Employees is: ";
+            document.getElementById("output").innerHTML=arr.join(", ");
+            
+        }
+    </script>
+
+    <style>
+         input {
+            float: right;
+        }
+
+        body{
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            background-color:chocolate;
+            color: white;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 400px;
+        }
+
+        h2{
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        button {
+            width: 20%;
+            margin-top: 1rem;
+            margin-left: 10rem;
+            display: block;
+            padding: 0.5rem;
+            background-color: seashell;
+            color: black;
+            border: 1px solid white;
+            border-radius: 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        p {
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
+
+    </head>
+    
+    <body>
+        
+        <form>
+            <h2> Enter Names of 6 Employees </h2>
+            1st Employee: <input type="text"> <p></p>
+            2nd Employee: <input type="text"> <p></p>
+            3rd Employee: <input type="text"> <p></p>
+            4th Employee: <input type="text"> <p></p>
+            5th Employee: <input type="text"> <p></p>
+            6th Employee: <input type="text"> <p></p>
+
+            <button type="button" id="btn" onclick="sort()">Sort</button>
+
+            <p id="para"></p>
+            <p id="output"></p>
+        </form>
+    </body>
+
+</html>
