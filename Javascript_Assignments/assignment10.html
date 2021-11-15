@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignmenmt-10</title>
+
+    <script>
+        function sumOfSquares(n){
+            var sum = 0;
+            for(var i=0; i<n; i++)
+            {
+                if(i%2 == 0)
+                {
+                    sum = sum + i*i;
+                }
+            }
+            return sum;
+        }
+    </script>
+    
+</head>
+<body>
+    <script>
+        var input = parseInt(prompt("Enter the number to find the sum of square: "));
+        document.write("The sum of square is: " + sumOfSquares(input));
+    </script>
+</body>
+</html>
