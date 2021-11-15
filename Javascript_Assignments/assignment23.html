@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-23</title>
+
+    <style>
+        form {
+            background-color:sienna;
+            color: white;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 400px;
+        }
+
+        #btn {
+            width: 20%;
+            margin-top: 1rem;
+            display: block;
+            padding: 0.5rem;
+            background-color:snow;
+            color: black;
+            border: 1px solid white;
+        }
+
+        p{
+            padding: 1rem;
+        }
+
+    </style>
+
+    <script>
+        function circle() {
+            var radius = document.getElementById("r").value;
+            var area = (Math.PI * radius * radius).toFixed(2);
+            var cer = (Math.PI * 2 * radius).toFixed(2);
+            document.getElementById("output").innerHTML = ("Area is =" + area + "<br>" + "<br>" + "Circumference is =" + cer);
+        }
+    </script>
+
+</head>
+<body>
+    
+    <form>
+        Enter Radius: <input type="number" id="r" min="0"><br>
+        <input type="button" id="btn" value="display" onclick="circle()">
+        <p id="output"></p>
+    </form>
+</body>
+</html>
