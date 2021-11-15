@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-8</title>
+
+    <script>
+        function pow(x,y){
+            var result =1;
+            for(var i=1; i<= parseInt(y) ; i++ )
+            {
+                result *= parseInt(x);
+            }
+            return result;
+        }
+    </script>
+    
+</head>
+<body>
+
+    <script>
+        var base = prompt("Enter the base :");
+        var radix = prompt("Enter the radix:");
+        document.write("The value of " + base + "^" + radix + " is " + pow(base,radix) );
+    </script>
+
+</body>
+</html>
