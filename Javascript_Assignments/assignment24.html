@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        form {
+            background-color:steelblue;
+            color: white;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 80%;
+        }
+
+        #start,#end,#multiply{
+            padding: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        #btn1,#btn2 {
+            width: 10%;
+            margin-top: 2rem;
+            margin-left: 30rem;
+            display: block;
+            padding: 0.5rem;
+            background-color:seashell;
+            color: black;
+            border: 1px solid black;
+        }
+
+        textarea{
+            margin-left: 25rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function mul(){
+            var start = parseInt(document.getElementById("start").value);
+            var end = parseInt(document.getElementById("end").value);
+            var multi = parseInt(document.getElementById("multiply").value);
+            var res = 1;
+            for(var i=start; i<=end; i++){
+                res = multi*i;
+                document.getElementById("output").innerHTML += ("\n" + i + " times " + multi + " = " + res +"\n"); 
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Start Number: <input type="number" id="start"> &nbsp;
+        End Number: <input type="number" id="end"> &nbsp;
+        Multiply By: <input type="number" id="multiply"> &nbsp;<p></p>
+
+        <input type="button" id="btn1" value="Times Table" onclick="mul()" ><p></p>
+        <input type="reset" id="btn2" value="Reset"><br><br>
+        <textarea rows="15" cols="30" id="output"></textarea>
+
+    </form>
+</body>
+</html>
