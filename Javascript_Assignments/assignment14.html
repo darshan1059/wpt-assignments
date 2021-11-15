@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-14</title>
+
+    <script>
+        function getWeekDay(date){
+            switch(date.getDay()){
+                case 0 :{ alert('SU'); break;}
+                case 1 :{ alert('MO'); break;}
+                case 2 :{ alert('TU'); break;}
+                case 3 :{ alert('WE'); break;}
+                case 4 :{ alert('TH'); break;}
+                case 5 :{ alert('FR'); break;}
+                case 6 :{ alert('SA'); break;}
+                default :{ alert('wrong date')}
+
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+        var date = new Date(2012,0,3);
+        getWeekDay(date);
+    </script>
+</body>
+</html>
