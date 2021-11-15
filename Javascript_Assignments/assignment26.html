@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function check()
+        {
+            var num = parseInt(document.getElementById("inp").value);
+            var sum = 0;
+            var rem;
+            var val = num;
+            if(num >= 0 && num <= 1000){
+                while(num>=1)
+                {
+                    sum = Math.floor(sum + num % 10);
+                    console.log(sum);
+                    num = num/10;
+                }
+                document.getElementById("output").innerHTML = "Sum of the digits of "+val+ " is " + sum;
+            }
+            else{
+                document.getElementById("output").innerHTML = "Entered number is out of range";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form>
+        Enter Number: <input type="text" id="inp"><br>
+        <input type="button" id="btn1" value="check" onclick="check()">
+        <span id="output"></span>
+    </form>
+</body>
+</html>
