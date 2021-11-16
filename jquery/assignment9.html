@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-9</title>
+
+    <script src="/scripts/jquery-3.6.0.js"></script>
+
+    
+
+</head>
+<body>
+    <ul>
+        <li>Apple</li>
+        <li>Kiwi</li>
+        <li>Strawberry</li>
+    </ul>
+    <p id="p1"></p>
+
+    <script>
+        $("li").on("mouseover",function(){
+            $("#p1").text($(this).text())
+        })
+        $("li").on("mouseout",function(){
+            $("#p1").text('')
+        })
+    </script>
+</body>
+</html>
