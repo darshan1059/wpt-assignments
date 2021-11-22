@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <style>
+      #s1,
+      #s2 {
+        color: red;
+      }
+    </style>
+    <script>
+      function checkName() {
+        var name = document.getElementById("name").value;
+        if (name.length < 6) {
+          document.getElementById("s1").innerHTML =
+            "Cust name cannot be less than 6 characters";
+          return false;
+        } else {
+          document.getElementById("s1").innerHTML = "";
+          return true;
+        }
+      }
+      function checkDates() {
+        var billingDate = document.getElementById("billing").value;
+        var shippingDate = document.getElementById("shipping").value;
+        if (
+          Date.parse(document.getElementById("shipping").value) -
+            Date.parse(document.getElementById("billing").value) <
+          0
+        ) {
+          document.getElementById("s2").innerHTML =
+            "Billing date cannot be greater than shipping date";
+          return false;
+        } else {
+          document.getElementById("s2").innerHTML = "";
+          return true;
+        }
+      }
+      function validateForm() {
+        if (checkName() && checkDates()) {
+          return true;
+        } else return false;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form onsubmit="return validateForm()" action="getdetails">
+      Order ID: <input type="text" name="id" id="id" required />
+      <p></p>
+      Cust name: <input type="text" name="name" id="name" required />
+      <span id="s1"></span>
+      <p></p>
+      Enter Billing date:
+      <input type="date" name="billdate" id="billing" required />
+      <span id="s2"></span>
+      <p></p>
+      Enter Shipping date:
+      <input type="date" name="shipdate" id="shipping" required />
+      <p></p>
+      Order total: <input type="text" name="total" id="total" required />
+      <p></p>
+      <input type="submit" value="display" />
+    </form>
+  </body>
+</html>
