@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment-4</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment-8</title>
+  <script src="/scripts/jquery-3.6.0.js"></script>
+<style>
+  #target {
+      background-color:brown;
+      border: 1px solid skyblue;
+      padding: 5%;
+      }
 
-    <script src="/scripts/jquery-3.6.0.js"></script>
+      span {
+      background-color: yellow;
+      border: 1px solid black;
+      padding: 1%;
 
-    <script>
-        $(document).ready(function(){
-            $("div span").css("background-color","orange").css("border","1px solid black").css("color","white");
-        })
-    </script>
+      align: center;
+    }
+</style>
 
+  <script>
+    $(document).ready(() => {
+      $("#target span").click(() => {
+        $("#target span").text("#I AM New Text")
+      })
+    })
+  </script>
 </head>
+
 <body>
-    <div id=”target”>
-        <h3>div 1</h3>
-        <span>span(change me!)</span>
-    </div>
-    
+  <div id="target">
+    <span>
+      Click me to change me.
+    </span>
+  </div>
 </body>
+
 </html>
