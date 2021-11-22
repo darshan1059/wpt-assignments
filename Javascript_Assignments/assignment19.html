@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script>
+        var emp = [
+            {
+                empid: 1,
+                empname: "babu",
+                salary: 10000
+            },
+            {
+                empid: 2,
+                empname: "tabu",
+                salary: 6000
+            },
+            {
+                empid: 3,
+                empname: "sabu",
+                salary: 15000
+            },
+            {
+                empid: 4,
+                empname: "dabu",
+                salary: 11000
+            }
+        ]
+    </script>
+    <style>
+        td,th{
+            border: 2px solid red
+        }
+        table{
+            border-collapse:collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="t1">
+        <tr>
+            <th>EMPID</th>
+            <th>EMPNAME</th>
+            <th>SALARY</th>
+        </tr>
+        <script>
+            for (ele of emp) {
+                document.write("<tr>");
+                document.write("<td>" + ele.empid + "</td>");
+                document.write("<td>" + ele.empname + "</td>");
+                document.write("<td>" + ele.salary + "</td>");
+                document.write("</tr>")
+            }
+            console.log(document.getElementById("t1").innerHTML);
+        </script>
+    </table>
+</body>
+
+</html>
