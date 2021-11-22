@@ -10,13 +10,12 @@
     
 </head>
 <body>
-    <div>
-        <h1>Welcome</h1>
-    </div>
-
     <script>
-        $(document).ready(function(){
-            $("body").append("<h1>JQuery Core</h1>");
+        $(document).ready(() => {
+            var h1 = document.createElement("h1");
+            h1.innerHTML = "JQuery Core";
+
+            $("body").append($(document.createElement("div").appendChild(h1)))
         })
     </script>
 
