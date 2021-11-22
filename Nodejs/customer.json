@@ -1,0 +1,36 @@
+[
+    {
+        "name":"babu",
+        "address":"mumbai",
+        "ph_no":"9876543210",
+        "creditRating":"9"
+    },
+
+    {
+        "name":"tabu",
+        "address":"delhi",
+        "ph_no":"9876565210",
+        "creditRating":"8"
+    },
+
+    {
+        "name":"sabu",
+        "address":"kolkata",
+        "ph_no":"9774343210",
+        "creditRating":"7"
+    },
+
+    {
+        "name":"falana",
+        "address":"pune",
+        "ph_no":"9876522210",
+        "creditRating":"6"
+    },
+
+    {
+        "name":"dhimkana",
+        "address":"chennai",
+        "ph_no":"9875553210",
+        "creditRating":"5"
+    }
+]
